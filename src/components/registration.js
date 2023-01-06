@@ -5,36 +5,37 @@ import "./style.css"
 
 
 export default function Registration(){
+    // User Information
     const [fullName, setFullName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [occupation, setOccupation] = useState('')
     const [state, setState] = useState('')
 
+    // Data retrieved from response.data, used to create select options lines 56-70
     const [occupationOptions, setOccupationOptions] = useState([])
     const [stateOptions, setStateOptions] = useState([])
 
     useEffect(() => {
-
         fetch("https://frontend-take-home.fetchrewards.com/form")
         .then((response) => response.json())
         .then((data) => {
-            console.log(data)
+            // console.log(data)
             setOccupationOptions([...occupationOptions,data.occupations])
-            setStateOptions([...stateOptions,data.states])
-            
+            setStateOptions([...stateOptions,data.states])  
         }).catch((err) => {
             console.log(err)
         })
        
     },[])
-    console.log('Occupation ->',occupationOptions[0])
-    console.log('states ->',stateOptions[0])
+    // console.log('Occupation ->',occupationOptions[0])
+    // console.log('states ->',stateOptions[0])
 
     
     return(
         <div>
             <div>
+                {/* User info */}
                 <form>
                 <div>
                   <label htmlFor="fullName">Full Name: </label>
@@ -51,6 +52,7 @@ export default function Registration(){
                 </div>
 
                 <div>
+                    {/* Using data retrieved from line 19 useEffect to create an option for every occupation and states */}
                 <label htmlFor="occupation">Occupation: </label>
                     <select id="occupation"> 
                         {occupationOptions[0].map((occupation, i) => (
@@ -58,14 +60,15 @@ export default function Registration(){
                         ))}
                     </select>
                 </div>
-                {/* <div>
+                <div>
                     <label htmlFor="states">State: </label>
                     <select id="states">
                         {stateOptions[0].map((state, i) => (
-                            <option id="states" key={i}>{`${state.name}, ${state.}`}</option>
+                            <option id="states" key={i}>{`${state.name}`}</option>
                         ))}
                     </select>
-                </div> */}
+                </div>
+                
                 <div>
                     <br/>
                     <button className=" bg-orange-400 hover:bg-orange-500 rounded-full btn " type='submit'>Submit</button>
