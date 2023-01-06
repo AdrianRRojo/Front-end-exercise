@@ -58,6 +58,14 @@ export default function Registration(){
                         ))}
                     </select>
                 </div>
+                {/* <div>
+                    <label htmlFor="states">State: </label>
+                    <select id="states">
+                        {stateOptions[0].map((state, i) => (
+                            <option id="states" key={i}>{`${state.name}, ${state.}`}</option>
+                        ))}
+                    </select>
+                </div> */}
                 <div>
                     <br/>
                     <button className=" bg-orange-400 hover:bg-orange-500 rounded-full btn " type='submit'>Submit</button>
