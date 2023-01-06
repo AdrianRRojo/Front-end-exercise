@@ -1,36 +1,46 @@
-import React from 'react'
-import {useStaet} from 'react'
+import React, { useEffect } from 'react'
+import {useState} from 'react'
 
 import "./style.css"
 
+
 export default function Registration(){
+    const [fullName, setFullName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [occupation, setOccupation] = useState('')
+    const [state, setState] = useState('')
+
+    useEffect(() => {
+        fetch("https://frontend-take-home.fetchrewards.com/form")
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data.occupations)
+        }).catch((err) => {
+            console.warn(err)
+        })
+    }, [])
+
     return(
         <div>
             <div>
                 <form>
                 <div>
-                  <label for="fullName">Full Name: </label>
+                  <label htmlFor="fullName">Full Name: </label>
                   <input type="text" id="fullName" placeholder="Full Name" required/>
+                  
                 </div>
                 <div>
-                  <label for="email">Email: </label>
+                  <label htmlFor="email">Email: </label>
                   <input type="text" id="email" placeholder="Email" required/>
                 </div>
                 <div>
-                  <label for="password">Password: </label>
+                  <label htmlFor="password">Password: </label>
                   <input type="text" id="password" placeholder="Password" required/>
                 </div>
-                <div name='occupation' id='occupation'>
-                    <label for='occupation'>Occupation: </label>
-                    <select>
-                        <option value= ''> Select an occupation </option>
-                        <option value='frontend'>Front End Developer</option>
-                        <option value='backend'>Back End Developer</option>
-                        <option value='fullstack'>Full Stack Developer</option>
-                    </select>
-                </div>
-                  <div>
-                  <label for="states">State: </label>
+
+                  {/* <div>
+                  <label htmlFor="states">State: </label>
                   <select>
                   <option value="AL">Alabama</option>
 	                <option value="AK">Alaska</option>
@@ -84,7 +94,7 @@ export default function Registration(){
                     <option value="WI">Wisconsin</option>
                     <option value="WY">Wyoming</option>
                   </select>
-                </div>
+                </div> */}
                 <div>
                     <br/>
                     <button className=" bg-orange-400 hover:bg-orange-500 rounded-full btn " type='submit'>Submit</button>
