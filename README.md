@@ -1,6 +1,4 @@
-# Fetch Rewards
-
-# Sign Up Form
+# Fetch Rewards Sign Up Form
 ---
 ## Description
 ---
