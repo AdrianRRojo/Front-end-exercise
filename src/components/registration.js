@@ -4,16 +4,20 @@ import axios from 'axios'
 import "./style.css"
 
 export default function Registration(){
+// Used to store users Info
 const [name, setName] = useState('');
 const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
 const [occupation, setOccupation] = useState('');
 const [state, setState] = useState('');
 
+// For my own purpose to store json response, and other info 
 const [data, setUserData] = useState(null);
 const [loading, setLoading] = useState(true); 
 const [error, setError] = useState(null);
 const [formCompletedMSG, setFormCompletedMSG] = useState('Sign Up')
+
+// Post route, activated after the user hits the sign up button
 const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -42,6 +46,8 @@ const handleSubmit = async (e) => {
        console.warn(err)
     }
 };
+
+// Retrieve data for occupations and States
 useEffect(() => {
     const getFormData = async () => {
     try {
@@ -60,6 +66,7 @@ useEffect(() => {
 
 return (
     <div>
+        {/* Ensures getFormData() is completed to before rending form */}
         { !error && !loading && (
             <div>
                     <div className='div1'>
