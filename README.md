@@ -16,13 +16,13 @@ After the user finishes signing up, the new users information is sent to Fetch's
 
 ## MVP
 ---
-[x] Display a form with inputs for each field, 
+[ x ] Display a form with inputs for each field, 
 
-[x] Allow a user to complete and submit the form,
+[ x ] Allow a user to complete and submit the form,
 
-[x] Do not allow form submission without completing the entire form,
+[ x ] Do not allow form submission without completing the entire form,
 
-[x] Provide feedback upon successful form submission
+[ x ] Provide feedback upon successful form submission
 
 ## Technogies Used
 ---
