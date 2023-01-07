@@ -34,6 +34,7 @@ const handleSubmit = async (e) => {
         setOccupation('');
         setState('');
 
+        
         // console.log(
         //     "name -> ", name,
         //     "email -> ", email,
